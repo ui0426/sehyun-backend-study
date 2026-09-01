@@ -1,3 +1,12 @@
 spring:
   application:
     name: backend
+  datasource:
+    url: jdbc:postgresql://100.86.62.47:5432/studydb
+    username: studyuser
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.sehyun.backend.db.transaction
