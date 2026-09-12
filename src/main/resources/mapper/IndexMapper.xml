@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sehyun.backend.db.index.IndexMapper">
+
+    <select id="findById"
+            parameterType="long"
+            resultType="com.sehyun.backend.db.index.Member">
+        SELECT id,
+        name,
+        age,
+        status,
+        created_at
+        FROM member
+        WHERE id = #{memberId}
+    </select>
+
+    <select id="findByStatus"
+            parameterType="string"
+            resultType="com.sehyun.backend.db.index.Member">
+        SELECT id,
+        name,
+        age,
+        status,
+        created_at
+        FROM member
+        WHERE status = #{status}
+    </select>
+
+    <select id="findByStatusAndAge"
+            resultType="com.sehyun.backend.db.index.Member">
+        SELECT id,
+        name,
+        age,
+        status,
+        created_at
+        FROM member
+        WHERE status = #{status}
+        AND age = #{age}
+    </select>
+
+    <select id="findByMemberAndCreatedAt"
+            resultType="com.sehyun.backend.db.index.Member">
+        SELECT id,
+        name,
+        age,
+        status,
+        created_at
+        FROM member
+        WHERE id = #{memberId}
+        AND created_at >= #{createdAt}
+    </select>
+
+</mapper>
