@@ -2,10 +2,19 @@ spring:
   application:
     name: backend
   datasource:
-    url: jdbc:postgresql://100.86.62.47:5432/studydb
-    username: studyuser
+    url: jdbc:postgresql://100.86.62.47:5433/studydb2
+    username: studyuser2
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
